@@ -1,6 +1,6 @@
 {
-    "name": "hybridauth/hybridauth",
-    "description": "Open source social sign on PHP library.",
+    "name": "playground/hybridauth",
+    "description": "Open source social sign on PHP library + chrome bug fix",
     "keywords": ["hybridauth", "login", "oauth", "social", "openid", "facebook", "google", "twitter", "yahoo"],
     "homepage": "http://hybridauth.sourceforge.net",
     "type": "library",
