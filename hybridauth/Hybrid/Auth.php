@@ -347,6 +347,18 @@ class Hybrid_Auth
 	{
 		Hybrid_Logger::info( "Enter Hybrid_Auth::redirect( $url, $mode )" );
 
+		/**
+		 * Workaround to fix the chrome session bug on 302 : If I'm on the hauth_done step
+		 * and a no_session_redirect exist in the config, I proceed with this url and switch 
+		 * to JS mode.
+		*/
+		$provider_id = trim( strip_tags( Hybrid_Endpoint::$request["hauth_done"] ) );
+		
+		if ($url=='' && isset( Hybrid_Auth::$config["providers"][$provider_id]["no_session_redirect"] )){
+		  $url = Hybrid_Auth::$config["providers"][$provider_id]["no_session_redirect"];
+	      $mode = "JS";
+		}
+		
 		if( $mode == "PHP" ){
 			header( "Location: $url" ) ;
 		}
