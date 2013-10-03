@@ -352,8 +352,8 @@ class Hybrid_Auth
 		 * and a no_session_redirect exist in the config, I proceed with this url and switch 
 		 * to JS mode.
 		*/
-		if(isset(Hybrid_Endpoint::$request["hauth_done"])){ 
-	    		$provider_id = trim( strip_tags( Hybrid_Endpoint::$request["hauth_done"] ) );
+		if(isset($_REQUEST["hauth_done"])){ 
+	    		$provider_id = trim( strip_tags( $_REQUEST["hauth_done"] ) );
 	    		
 	    		if ($url=='' && isset( Hybrid_Auth::$config["providers"][$provider_id]["no_session_redirect"] )){
 	    			$url = Hybrid_Auth::$config["providers"][$provider_id]["no_session_redirect"];
