@@ -290,10 +290,13 @@ class Hybrid_Auth
 	public static function getConnectedProviders()
 	{
 		$idps = array();
+		$providers = Hybrid_Auth::$config["providers"];
 
-		foreach( Hybrid_Auth::$config["providers"] as $idpid => $params ){
-			if( Hybrid_Auth::isConnectedWith( $idpid ) ){
-				$idps[] = $idpid;
+		if (!empty($providers)) {
+			foreach ($providers as $idpid => $params) {
+				if (Hybrid_Auth::isConnectedWith($idpid)) {
+					$idps[] = $idpid;
+				}
 			}
 		}
 
